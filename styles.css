@@ -1,0 +1,429 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 30px;
+    position: relative;
+}
+
+.museum-logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    object-fit: contain;
+}
+
+.museum-info h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.museum-info p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.language-switcher {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background: white;
+    color: #2c3e50;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.survey-form {
+    padding: 40px;
+}
+
+.section {
+    margin-bottom: 40px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.section h2 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.section h3 {
+    color: #34495e;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 15px;
+    border: 2px solid #ecf0f1;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.checkbox-item:hover {
+    border-color: #3498db;
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.checkbox-item input {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #bdc3c7;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.checkbox-item input:checked + .checkmark {
+    background: #3498db;
+    border-color: #3498db;
+}
+
+.checkbox-item input:checked + .checkmark:after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.rating-section p {
+    background: #e8f4fd;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.rating-items {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.rating-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.rating-item:hover {
+    border-color: #3498db;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rating-item span {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.star-rating {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.star-rating i {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform-origin: center;
+}
+
+.star-rating i:hover,
+.star-rating i.active {
+    color: #f39c12;
+    transform: scale(1.1);
+}
+
+.star-rating i.active {
+    text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+}
+
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    border: 2px solid #ecf0f1;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.thank-you {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+}
+
+.thank-you i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: checkAnimation 0.6s ease-out;
+}
+
+@keyframes checkAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.thank-you h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    border: none;
+    padding: 0;
+}
+
+.thank-you p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .header {
+        padding: 20px;
+    }
+    
+    .language-switcher {
+        position: static;
+        margin-top: 20px;
+        justify-content: center;
+    }
+    
+    .museum-logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .survey-form {
+        padding: 20px;
+    }
+    
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+    
+    .star-rating {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    
+    .star-rating i {
+        font-size: 1.5rem;
+    }
+    
+    .rating-item {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .museum-info h1 {
+        font-size: 1.4rem;
+    }
+    
+    .museum-info p {
+        font-size: 0.8rem;
+    }
+    
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .star-rating i {
+        font-size: 1.3rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.submit-btn.loading {
+    background: #95a5a6;
+}
+
+.submit-btn.loading:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

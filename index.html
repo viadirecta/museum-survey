@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum of Finestrat - Survey</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c3e50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Museum Survey">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="museum-logo">
+                <img src="finestrat-logo.png" alt="Finestrat" class="logo-img">
+                <div class="museum-info">
+                    <h1>MUSEU DE FINESTRAT</h1>
+                    <p>Plaça Alcalde Miguel Llorça, núm 1, 03509, Finestrat (Alicante)<br>
+                    Tel. 660 70 54 20 - museu@finestrat.org</p>
+                </div>
+            </div>
+            
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="es">
+                    <i class="fas fa-flag"></i> ES
+                </button>
+                <button class="lang-btn" data-lang="en">
+                    <i class="fas fa-flag"></i> EN
+                </button>
+                <button class="lang-btn" data-lang="ca">
+                    <i class="fas fa-flag"></i> VA
+                </button>
+            </div>
+        </header>
+
+        <form id="surveyForm" class="survey-form">
+            <div class="section">
+                <h2 data-key="visit-info">Información de la visita</h2>
+                
+                <div class="visit-type">
+                    <h3 data-key="visit-reason">Motivo de la visita</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visitType" value="general">
+                            <span class="checkmark"></span>
+                            <span data-key="general-visit">Visita general Museo</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visitType" value="temporary">
+                            <span class="checkmark"></span>
+                            <span data-key="temporary-exhibition">Exposición temporal</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visitType" value="conference">
+                            <span class="checkmark"></span>
+                            <span data-key="conference">Conferencia</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visitType" value="literary">
+                            <span class="checkmark"></span>
+                            <span data-key="literary-presentation">Presentación literaria</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="visitType" value="other">
+                            <span class="checkmark"></span>
+                            <span data-key="other">Otras</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 data-key="help-improve">¡AYÚDENOS A MEJORAR!</h2>
+                <p data-key="help-text">Estimado visitante, gracias por visitar nuestro Museo. Le agradeceremos enormemente que rellene el siguiente cuestionario para seguir mejorando y lograr una mayor satisfacción de nuestros servicios.</p>
+                
+                <div class="rating-section">
+                    <p data-key="rating-instruction">Puntúe del 1 (muy insatisfecho/ en desacuerdo) al 5 (muy satisfecho / muy de acuerdo) los siguientes aspectos:</p>
+                    
+                    <div class="rating-items">
+                        <div class="rating-item">
+                            <span data-key="info-activity">La información sobre la actividad por la que nos visita es adecuada</span>
+                            <div class="star-rating" data-question="info-activity">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="rating-item">
+                            <span data-key="exhibition-interest">La exposición permanente le ha parecido interesante (diseño, calidad, interés)</span>
+                            <div class="star-rating" data-question="exhibition-interest">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="rating-item">
+                            <span data-key="info-adequate">La información es adecuada (pantallas, textos, iluminación...)</span>
+                            <div class="star-rating" data-question="info-adequate">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="rating-item">
+                            <span data-key="staff-attention">La atención del personal ha sido de su agrado</span>
+                            <div class="star-rating" data-question="staff-attention">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="rating-item">
+                            <span data-key="accessibility">La accesibilidad del Museo es adecuada</span>
+                            <div class="star-rating" data-question="accessibility">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="rating-item">
+                            <span data-key="cleanliness">Limpieza y orden de las instalaciones</span>
+                            <div class="star-rating" data-question="cleanliness">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="rating-item">
+                            <span data-key="overall-satisfaction">Satisfacción general de su visita</span>
+                            <div class="star-rating" data-question="overall-satisfaction">
+                                <i class="fas fa-star" data-value="1"></i>
+                                <i class="fas fa-star" data-value="2"></i>
+                                <i class="fas fa-star" data-value="3"></i>
+                                <i class="fas fa-star" data-value="4"></i>
+                                <i class="fas fa-star" data-value="5"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 data-key="how-meet">¿Cómo nos conoció?</h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="howFound" value="internet">
+                        <span class="checkmark"></span>
+                        <span data-key="internet">Internet</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="howFound" value="guides">
+                        <span class="checkmark"></span>
+                        <span data-key="specialized-guides">Guías especializadas</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="howFound" value="tourist-office">
+                        <span class="checkmark"></span>
+                        <span data-key="tourist-office">Oficina Turismo</span>
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="howFound" value="press">
+                        <span class="checkmark"></span>
+                        <span data-key="press">Prensa</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 data-key="future-activities">¿Qué actividades le gustaría que se programaran?</h3>
+                <textarea name="futureActivities" placeholder="Escriba sus sugerencias aquí..." data-key-placeholder="future-activities-placeholder"></textarea>
+            </div>
+
+            <div class="section">
+                <h3 data-key="observations">Observaciones</h3>
+                <textarea name="observations" placeholder="Comparta sus comentarios adicionales..." data-key-placeholder="observations-placeholder"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i>
+                <span data-key="submit">Enviar encuesta</span>
+            </button>
+        </form>
+
+        <div id="thankYouMessage" class="thank-you hidden">
+            <i class="fas fa-check-circle"></i>
+            <h2 data-key="thank-you-title">¡Gracias por su tiempo!</h2>
+            <p data-key="thank-you-text">Su opinión es muy valiosa para nosotros y nos ayuda a mejorar continuamente.</p>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
