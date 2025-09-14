@@ -1,0 +1,187 @@
+GOOGLE APPS SCRIPT UPDATE INSTRUCTIONS
+====================================
+
+📧 UPGRADE YOUR MUSEUM SURVEY TO GET EMAIL NOTIFICATIONS
+========================================================
+
+WHY UPDATE?
+-----------
+Your current Google Apps Script works fine, but the new version adds:
+✅ Instant email notifications on every survey submission
+✅ Visual alerts for low ratings with color-coded stars
+✅ Professional email format with rating summaries
+✅ Smart routing - manager gets critical alerts
+✅ Mobile-friendly emails
+
+
+OPTION 1: QUICK UPDATE (5 MINUTES)
+==================================
+
+STEP 1: Open Your Apps Script
+-----------------------------
+1. Go to: https://script.google.com
+2. Find and open your existing museum survey script
+3. It should be named something like "Museum Survey Handler"
+
+STEP 2: Replace the Code
+------------------------
+1. Select ALL current code (Ctrl+A)
+2. Delete it
+3. Open the file "enhanced-apps-script.js" from your download
+4. Copy ALL the code from that file
+5. Paste it into your Apps Script
+
+STEP 3: Configure Your Settings
+-------------------------------
+Find this section near the top (around line 8):
+
+    const EMAIL_CONFIG = {
+      primaryEmail: 'museum@finestrat.org',           // ← CHANGE THIS
+      alertEmail: 'manager@finestrat.org',            // ← CHANGE THIS
+      lowRatingThreshold: 3,                          // ← CHANGE IF NEEDED
+      criticalRatingThreshold: 2,                     // ← USUALLY LEAVE AS 2
+      museumName: 'Museu de Finestrat',              // ← CHANGE THIS
+      sendEmailOnEverySubmission: true,               // ← true = all surveys
+      sendAlertsOnly: false                          // ← false = send all emails
+    };
+
+UPDATE THESE VALUES:
+- primaryEmail: Your main museum email address
+- alertEmail: Manager/director email for urgent alerts
+- museumName: Your museum's name
+- lowRatingThreshold: Send alerts when ratings are this low or lower (1-5)
+
+STEP 4: Save and Redeploy
+-------------------------
+1. Save the script (Ctrl+S)
+2. Click "Deploy" → "Manage deployments"
+3. Click the Edit button (pencil icon)
+4. Click "Deploy"
+5. Copy the new Web App URL if it changed
+
+STEP 5: Update Your Survey (If Needed)
+--------------------------------------
+If the Web App URL changed:
+1. Open your survey's "script.js" file
+2. Find the APPS_SCRIPT_CONFIG section
+3. Update the webAppUrl with your new URL
+
+
+OPTION 2: EASY CONFIGURATION TOOL
+==================================
+
+If you prefer a visual interface:
+
+1. Open "email-config-setup.html" in your web browser
+2. Fill in all your museum details
+3. Click "Generate Configuration Code"
+4. Copy the generated code
+5. Paste it into your Google Apps Script
+6. Save and redeploy
+
+
+TESTING YOUR EMAIL NOTIFICATIONS
+=================================
+
+1. Submit a Test Survey
+-----------------------
+- Fill out your survey completely
+- Give some low ratings (1-3 stars) to test alerts
+- Submit the survey
+
+2. Check Your Email
+-------------------
+- You should receive an email within 1-2 minutes
+- Low ratings should show red stars and alerts
+- Check spam folder if nothing arrives
+
+3. Verify Google Sheet
+----------------------
+- Open your Google Sheet
+- Confirm the new response appears
+- Data should match what you submitted
+
+
+EMAIL NOTIFICATION FEATURES
+============================
+
+Regular Survey Email:
+--------------------
+Subject: "📊 [Museum Name] Survey - New Response"
+Contains: All ratings with colored stars, visitor comments, direct link to sheets
+
+Alert Email (Low Ratings):
+--------------------------
+Subject: "⚠️ ALERT: [Museum Name] Survey - Below Expected Rating"
+Contains: Red highlighting for low scores, sent to both primary and alert emails
+
+Critical Alert (Very Low):
+--------------------------
+Subject: "🚨 CRITICAL: [Museum Name] Survey - Low Satisfaction Alert"
+Contains: Bold warnings, critical issue highlights
+
+
+CUSTOMIZING EMAIL SETTINGS
+===========================
+
+In the EMAIL_CONFIG section, you can adjust:
+
+sendEmailOnEverySubmission: true/false
+- true = Get email for every survey submission
+- false = Only get emails for low ratings
+
+sendAlertsOnly: true/false
+- true = Only send emails when ratings are below threshold
+- false = Send emails for all submissions
+
+lowRatingThreshold: 2, 3, or 4
+- 2 = Only very poor ratings (1-2 stars)
+- 3 = Below average ratings (1-3 stars)
+- 4 = Any rating below excellent (1-4 stars)
+
+
+TROUBLESHOOTING
+===============
+
+No Emails Received?
+-------------------
+✓ Check spam/junk folder
+✓ Verify email addresses are correct in EMAIL_CONFIG
+✓ Test with a simple email like gmail.com first
+✓ Make sure you saved and redeployed the script
+
+Wrong Sender Email?
+-------------------
+✓ Apps Script sends emails from your Google account
+✓ This is normal and cannot be changed
+✓ The "Reply-To" will be your museum email
+
+Emails Look Strange?
+-------------------
+✓ Some email clients don't support HTML well
+✓ Gmail, Outlook, Apple Mail work perfectly
+✓ Content is still readable in plain text
+
+Survey Not Working?
+-------------------
+✓ Check that Web App URL is correct in your survey's script.js
+✓ Make sure Apps Script is deployed with "Anyone" access
+✓ Test the Apps Script URL directly in browser
+
+
+SUPPORT
+=======
+
+If you need help:
+1. Check your browser's console for error messages (F12)
+2. Test your Apps Script URL directly:
+   https://your-apps-script-url/exec?visitTypes=test&infoActivity=5
+3. Verify all email addresses are valid
+4. Make sure Google Sheet ID matches in both Apps Script and survey
+
+The enhanced system works exactly like your current one, but adds professional
+email notifications that help you respond quickly to visitor feedback!
+
+---
+
+SUMMARY: UPDATE APPS SCRIPT → CONFIGURE EMAILS → TEST → ENJOY INSTANT ALERTS!

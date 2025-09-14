@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museum Survey - Email Configuration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"], input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        .help-text {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .preview-section {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+
+        .button-group {
+            text-align: center;
+            margin-top: 30px;
+            gap: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+
+        .secondary-btn {
+            background: #6c757d;
+        }
+
+        .secondary-btn:hover {
+            background: #545b62;
+        }
+
+        .output-section {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .alert-info {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            color: #1976d2;
+        }
+
+        .alert-success {
+            background: #e8f5e8;
+            border-left: 4px solid #4caf50;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📧 Email Configuration Setup</h1>
+        <p class="subtitle">Configure email notifications for your museum survey responses</p>
+
+        <form id="emailConfigForm">
+            <div class="form-group">
+                <label for="museumName">Museum Name</label>
+                <input type="text" id="museumName" value="Museu de Finestrat" required>
+                <div class="help-text">This will appear in email subject lines and content</div>
+            </div>
+
+            <div class="form-group">
+                <label for="primaryEmail">Primary Email</label>
+                <input type="email" id="primaryEmail" value="museum@finestrat.org" required>
+                <div class="help-text">Main museum email - receives all notifications</div>
+            </div>
+
+            <div class="form-group">
+                <label for="alertEmail">Alert Email (Manager/Director)</label>
+                <input type="email" id="alertEmail" value="manager@finestrat.org" required>
+                <div class="help-text">Manager email - receives critical/low rating alerts</div>
+            </div>
+
+            <div class="form-group">
+                <label for="lowRatingThreshold">Low Rating Threshold</label>
+                <select id="lowRatingThreshold">
+                    <option value="2">2 - Only very low ratings (1-2)</option>
+                    <option value="3" selected>3 - Below average ratings (1-3)</option>
+                    <option value="4">4 - Any rating below excellent (1-4)</option>
+                </select>
+                <div class="help-text">Send alert emails when ratings are at or below this level</div>
+            </div>
+
+            <div class="form-group">
+                <label for="criticalRatingThreshold">Critical Rating Threshold</label>
+                <select id="criticalRatingThreshold">
+                    <option value="1">1 - Extremely poor ratings only</option>
+                    <option value="2" selected>2 - Very poor ratings</option>
+                    <option value="3">3 - Below average ratings</option>
+                </select>
+                <div class="help-text">Send CRITICAL alert emails for these extremely low ratings</div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="sendEmailOnEverySubmission" checked>
+                    <label for="sendEmailOnEverySubmission">Send email for every survey submission</label>
+                </div>
+                <div class="help-text">If unchecked, emails only sent for low ratings</div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="sendAlertsOnly">
+                    <label for="sendAlertsOnly">Send alerts only (no regular notifications)</label>
+                </div>
+                <div class="help-text">Only send emails when ratings are below threshold</div>
+            </div>
+        </form>
+
+        <div class="preview-section">
+            <h3>📋 Configuration Preview</h3>
+            <div id="configPreview">
+                <p><strong>Museum:</strong> <span id="previewMuseum">Museu de Finestrat</span></p>
+                <p><strong>Primary Email:</strong> <span id="previewPrimary">museum@finestrat.org</span></p>
+                <p><strong>Alert Email:</strong> <span id="previewAlert">manager@finestrat.org</span></p>
+                <p><strong>Alert Threshold:</strong> Ratings ≤ <span id="previewThreshold">3</span></p>
+                <p><strong>Critical Threshold:</strong> Ratings ≤ <span id="previewCritical">2</span></p>
+                <p><strong>Email Frequency:</strong> <span id="previewFrequency">All submissions</span></p>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" onclick="generateConfiguration()">🔧 Generate Configuration Code</button>
+            <button type="button" class="secondary-btn" onclick="downloadInstructions()">📋 Download Setup Instructions</button>
+        </div>
+
+        <div id="outputSection" class="output-section">
+            <div class="alert alert-success">
+                <strong>✅ Configuration Generated!</strong> Copy the code below and paste it into your Google Apps Script.
+            </div>
+
+            <h3>📝 Google Apps Script Code</h3>
+            <div class="alert alert-info">
+                Replace the EMAIL_CONFIG section in your Google Apps Script with this code:
+            </div>
+            <div class="code-block" id="generatedCode"></div>
+
+            <div class="button-group">
+                <button type="button" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update preview in real-time
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('input', updatePreview);
+                input.addEventListener('change', updatePreview);
+            });
+        });
+
+        function updatePreview() {
+            document.getElementById('previewMuseum').textContent = document.getElementById('museumName').value;
+            document.getElementById('previewPrimary').textContent = document.getElementById('primaryEmail').value;
+            document.getElementById('previewAlert').textContent = document.getElementById('alertEmail').value;
+            document.getElementById('previewThreshold').textContent = document.getElementById('lowRatingThreshold').value;
+            document.getElementById('previewCritical').textContent = document.getElementById('criticalRatingThreshold').value;
+
+            const sendAll = document.getElementById('sendEmailOnEverySubmission').checked;
+            const alertsOnly = document.getElementById('sendAlertsOnly').checked;
+
+            let frequency;
+            if (alertsOnly) {
+                frequency = 'Alerts only';
+            } else if (sendAll) {
+                frequency = 'All submissions';
+            } else {
+                frequency = 'Low ratings only';
+            }
+
+            document.getElementById('previewFrequency').textContent = frequency;
+        }
+
+        function generateConfiguration() {
+            const museumName = document.getElementById('museumName').value;
+            const primaryEmail = document.getElementById('primaryEmail').value;
+            const alertEmail = document.getElementById('alertEmail').value;
+            const lowRatingThreshold = document.getElementById('lowRatingThreshold').value;
+            const criticalRatingThreshold = document.getElementById('criticalRatingThreshold').value;
+            const sendEmailOnEverySubmission = document.getElementById('sendEmailOnEverySubmission').checked;
+            const sendAlertsOnly = document.getElementById('sendAlertsOnly').checked;
+
+            const configCode = `    // EASY EMAIL CONFIGURATION - Change these values for your museum
+    const EMAIL_CONFIG = {
+      primaryEmail: '${primaryEmail}',                    // Main museum email
+      alertEmail: '${alertEmail}',                        // Manager email for alerts
+      lowRatingThreshold: ${lowRatingThreshold},          // Send alerts for ratings below this (1-5 scale)
+      criticalRatingThreshold: ${criticalRatingThreshold}, // Critical alert threshold
+      museumName: '${museumName}',                        // Your museum name
+      sendEmailOnEverySubmission: ${sendEmailOnEverySubmission}, // Send email for all submissions
+      sendAlertsOnly: ${sendAlertsOnly}                   // If true, only send emails for low ratings
+    };`;
+
+            document.getElementById('generatedCode').textContent = configCode;
+            document.getElementById('outputSection').style.display = 'block';
+
+            // Scroll to output
+            document.getElementById('outputSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyToClipboard() {
+            const codeElement = document.getElementById('generatedCode');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // Show feedback
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = '✅ Copied!';
+            button.style.background = '#4caf50';
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '#667eea';
+            }, 2000);
+        }
+
+        function downloadInstructions() {
+            const instructions = `
+MUSEUM SURVEY EMAIL SETUP INSTRUCTIONS
+=====================================
+
+1. COPY CONFIGURATION CODE
+   - Use the configuration generator above
+   - Copy the generated EMAIL_CONFIG code
+
+2. UPDATE GOOGLE APPS SCRIPT
+   - Go to script.google.com
+   - Open your museum survey script
+   - Find the EMAIL_CONFIG section (around line 8)
+   - Replace it with your generated code
+
+3. UPDATE SHEET ID
+   - Replace 'YOUR_GOOGLE_SHEET_ID_HERE' with your actual Google Sheet ID
+
+4. SAVE AND REDEPLOY
+   - Save the script (Ctrl+S)
+   - Deploy > Manage deployments > Edit > Deploy
+
+5. TEST EMAIL NOTIFICATIONS
+   - Submit a test survey with low ratings (1-2 stars)
+   - Check if you receive the alert email
+   - Verify both primary and alert emails work
+
+EMAIL FEATURES:
+- ✅ Visual ratings with color coding
+- ✅ Automatic alerts for low ratings
+- ✅ Critical alerts for very poor ratings
+- ✅ Direct link to Google Sheets
+- ✅ Visitor comments highlighted
+- ✅ Mobile-friendly email format
+
+TROUBLESHOOTING:
+- No emails received? Check Gmail spam folder
+- Wrong sender? Apps Script sends from your Google account
+- Missing data? Verify Sheet ID is correct
+- CORS errors? Redeploy the web app with "Anyone" access
+
+For support: Check your browser console for errors
+            `;
+
+            const blob = new Blob([instructions], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'museum-survey-email-setup-instructions.txt';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Initialize preview
+        updatePreview();
+    </script>
+</body>
+</html>
