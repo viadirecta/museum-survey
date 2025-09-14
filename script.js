@@ -105,7 +105,7 @@ class MuseumSurvey {
 
     // GOOGLE APPS SCRIPT CONFIGURATION
     APPS_SCRIPT_CONFIG = {
-        webAppUrl: 'https://script.google.com/macros/s/AKfycbzK8-R4oJhwr3FI3a-w_Lcw7G1uSfSiTZPY4ifwXtjd1w4-3TETPgcUckOOsBV-dfI/exec', // Replace with your working Apps Script URL
+        webAppUrl: 'https://script.google.com/macros/s/AKfycbzGl4FZdb9qCzTvPAFpa70XD1b4Ty2V4NxqiSD3kcCgL4Nh7HJFHLtzvIF33jm4OykBTA/exec', // Replace with your working Apps Script URL
         sheetId: '1B60DryosMAg9RTZXcbIxRxXIWFFPVGZSFw1icMm4DM8'
     };
 
